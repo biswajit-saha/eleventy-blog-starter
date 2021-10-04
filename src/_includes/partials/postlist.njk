@@ -1,0 +1,23 @@
+<div class="max-w-2xl justify-between mx-auto">
+    {% for post in posts | reverse %}
+    <article class="{{ '' if loop.last else 'border-b' }} pb-10 mb-10">
+        <h2 class="mb-4">
+            <a href="{{post.url}}" class="hover:text-red-500">{{post.data.title}}</a>
+        </h2>
+        <div class="mt-8">
+            <time datetime="{{ post.date | htmlDateString }}">{{post.date | readableDate }}</time>
+            {% for tag in post.data.tags %}
+                {% if loop.first %}
+                <span class="mx-2">•</span>
+                {% endif %}
+                {% if tag !== 'posts' %}
+                <a href="/blog/{{tag | slug }}/">{{tag}}</a>{{ '' if loop.last else ',' }}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="text-xl leading-8">
+            {% excerpt post %}
+        </div>
+    </article>
+    {% endfor %}
+</div>

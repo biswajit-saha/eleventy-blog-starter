@@ -1,0 +1,27 @@
+<header class="px-6 md:px-8 mb-8">
+    <div class="max-w-screen-lg xl:max-w-screen-xl flex justify-between mx-auto my-8">
+        <div class="text-2xl font-bold">
+            <a href="{{ '/' | url }}">John Doe</a>
+        </div>
+        <nav class="">
+            <ul class="flex space-x-8 text-lg font-medium text-gray-500" role="menu">
+                {% for nav in navigation %}
+                    <li class="group relative" role="menuitem">
+                        {% if nav.child %}
+                            <a href="#" class="inline-flex h-8 hover:text-red-500">{{nav.title}}</a>
+                            <ul class="opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus:opacity-100 group-focus:visible absolute right-0 block border border-solid border-gray-200 rounded-md p-2 min-w-160">
+                                {% for nav in nav.child %}
+                                    <li class="whitespace-nowrap hover:bg-gray-100  rounded-md" role="menuitem">
+                                        <a href="{{nav.url | url}}" class="block p-2 {% if nav.url==page.url %} nav-current text-red-500{% endif %}">{{nav.title}}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <a href="{{nav.url | url}}" class="inline-flex h-8 hover:text-red-500{% if nav.url==page.url %}nav-current text-red-500{% endif %}">{{nav.title}}</a>                        
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</header>

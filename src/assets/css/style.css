@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	@apply leading-relaxed;
+}
+h1, h2, h3, h4, h5 {
+    @apply font-serif;
+}
+h1, .h1 {
+	@apply md:text-6xl sm:text-5xl text-4xl;
+	@apply leading-relaxed;
+}
+h2, .h2 {
+	@apply text-5xl;
+}
+h3, .h3 {
+	@apply text-4xl;
+}
+
+@layer utilities {
+    .min-w-160 {
+        min-width: 160px;
+    }
+}
+
+.btn {
+	@apply h-12 px-4 leading-12 inline-block text-white text-lg bg-black;
+}
+.btn:hover, .btn:focus {
+	@apply  bg-red-600;
+}
+.content > * {
+	margin-bottom: 40px;
+}

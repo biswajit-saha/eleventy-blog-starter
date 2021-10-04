@@ -1,0 +1,31 @@
+{
+  "name": "eleventy-blog-starter",
+  "version": "0.0.1",
+  "description": "A starter template for blog website using Eleventy static site generator",
+  "scripts": {
+    "eleventy:serve": "eleventy --serve",
+    "css": "postcss src/assets/css/style.css --o _site/assets/css/style.css --watch",
+    "start": "npm-run-all --parallel css eleventy:serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/biswajit-saha/eleventy-blog-starter.git"
+  },
+  "author": {
+    "name": "Biswajit Saha"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "homepage": "https://github.com/biswajit-saha/eleventy-blog-starter#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@tailwindcss/typography": "^0.4.1",
+    "autoprefixer": "^10.3.6",
+    "eleventy-plugin-excerpt": "^1.1.2",
+    "luxon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.8",
+    "postcss-cli": "^9.0.0",
+    "tailwindcss": "^2.2.16"
+  }
+}

@@ -1,0 +1,31 @@
+[
+    {
+        "title": "Home",
+        "url": "/"
+    },
+    {
+    "title": "Blog",
+    "url": "/blog/"
+    },
+    {
+    "title": "About",
+    "url": "/about/"
+    },
+    {
+    "title": "Contact",
+    "url": "/contact/"
+    },
+    {
+        "title": "Dropdown",
+        "child": [
+            {
+            "title": "Child 1",
+            "url": "#"
+            },
+            {
+            "title": "Child 2",
+            "url": "#"
+            }
+        ]
+    }
+]
