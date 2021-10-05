@@ -6,7 +6,7 @@
     "watch": "eleventy --watch",
     "serve": "eleventy --serve",
     "css": "postcss src/assets/css/style.css --o _site/assets/css/style.css --watch",
-    "start": "npm-run-all --parallel css watch",
+    "start": "npm-run-all --parallel css serve",
     "build": "cross-env NODE_ENV=production eleventy && cross-env NODE_ENV=production postcss src/assets/css/style.css --o _site/assets/css/style.css"
   },
   "repository": {
@@ -24,6 +24,7 @@
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.3.6",
     "cross-env": "^7.0.3",
+    "cssnano": "^5.0.8",
     "eleventy-plugin-excerpt": "^1.1.2",
     "eleventy-plugin-reading-time": "0.0.1",
     "luxon": "^2.0.2",
