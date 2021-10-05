@@ -1,12 +1,14 @@
 const fs = require('fs');
-const excerpt = require('eleventy-plugin-excerpt');
 const { DateTime } = require("luxon");
+const readingTime = require('eleventy-plugin-reading-time');
+const excerpt = require('eleventy-plugin-excerpt');
 
 module.exports = function (eleventyConfig) {
     // Enable data deep marge
     eleventyConfig.setDataDeepMerge(true);
 
 	//plugins
+	eleventyConfig.addPlugin(readingTime);
 	eleventyConfig.addPlugin(excerpt);
 
 	// filters

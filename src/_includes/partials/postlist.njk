@@ -6,6 +6,7 @@
         </h2>
         <div class="mt-8">
             <time datetime="{{ post.date | htmlDateString }}">{{post.date | readableDate }}</time>
+            <span>{{ post | readingTime }} min read</span>
             {% for tag in post.data.tags %}
                 {% if loop.first %}
                 <span class="mx-2">•</span>
