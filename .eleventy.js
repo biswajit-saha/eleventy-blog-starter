@@ -2,6 +2,7 @@ const fs = require('fs');
 const { DateTime } = require("luxon");
 const readingTime = require('eleventy-plugin-reading-time');
 const excerpt = require('eleventy-plugin-excerpt');
+const svgSprite = require("eleventy-plugin-svg-sprite");
 
 module.exports = function (eleventyConfig) {
     // Enable data deep marge
@@ -10,6 +11,9 @@ module.exports = function (eleventyConfig) {
 	//plugins
 	eleventyConfig.addPlugin(readingTime);
 	eleventyConfig.addPlugin(excerpt);
+	eleventyConfig.addPlugin(svgSprite, {
+		path: "./src/assets/svg",
+	});
 
 	// filters
 	eleventyConfig.addFilter("readableDate", dateObj => {
@@ -19,6 +23,9 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
 		return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
 	});
+	eleventyConfig.addFilter('primaryTag', (tagsArr) => {
+		return tagsArr.find(element => element !== 'posts');
+	})
 
 	eleventyConfig.addPassthroughCopy('src/assets/images');
 

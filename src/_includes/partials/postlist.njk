@@ -1,24 +1,23 @@
 <div class="max-w-2xl justify-between mx-auto">
     {% for post in posts | reverse %}
-    <article class="{{ '' if loop.last else 'border-b' }} pb-10 mb-10">
-        <h2 class="mb-4">
+    <article class="{{ '' if loop.last else 'border-b' }} py-14">
+        {# post meta #}
+        <div class="mb-6 text-gray-600 uppercase text-sm">
+            <time datetime="{{ post.date | htmlDateString }}">{{post.date | readableDate }}</time>
+            <span class="mx-1" role="presentation" aria-hidden="true">•</span>
+            <span>{{ post | readingTime }} read</span>
+            {% set primaryTag = post.data.tags | primaryTag %}
+            <span class="mx-1" role="presentation" aria-hidden="true">•</span>
+            <a href="/blog/{{primaryTag | slug }}/" class="hover:text-red-500">{{primaryTag}}</a>
+        </div>
+        <h2 class="mb-6">
             <a href="{{post.url}}" class="hover:text-red-500">{{post.data.title}}</a>
         </h2>
-        <div class="mt-8">
-            <time datetime="{{ post.date | htmlDateString }}">{{post.date | readableDate }}</time>
-            <span>{{ post | readingTime }} min read</span>
-            {% for tag in post.data.tags %}
-                {% if loop.first %}
-                <span class="mx-2">•</span>
-                {% endif %}
-                {% if tag !== 'posts' %}
-                <a href="/blog/{{tag | slug }}/">{{tag}}</a>{{ '' if loop.last else ',' }}
-                {% endif %}
-            {% endfor %}
-        </div>
-        <div class="text-xl leading-8">
+        <div class="text-xl prose sm:prose-lg md:prose-xl mb-6">
             {% excerpt post %}
         </div>
+        {% set svgClass = "fill-current w-3 h-3 ml-2 inline" %}
+        <div><a href="{{post.url}}" class="text-sm uppercase text-red-500 inline-flex items-center">Read more {% svg "arrow-right", svgClass %}</a></div>
     </article>
     {% endfor %}
 </div>

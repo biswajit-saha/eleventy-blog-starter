@@ -25,3 +25,7 @@ layout: base
         </article>
     </div>
 </section>
+{% set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+{% set nextPost = collections.posts | getNextCollectionItem(page) %}
+<a href="{{previousPost.url}}">{{previousPost.data.title}}</a>
+<a href="{{nextPost.url}}">{{nextPost.data.title}}</a>
