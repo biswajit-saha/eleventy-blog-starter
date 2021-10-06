@@ -24,9 +24,6 @@ h3, .h3 {
         min-width: 160px;
     }
 }
-svg {
-	fill: @apply text-current;
-}
 .btn {
 	@apply h-12 px-4 leading-12 inline-block text-white text-lg bg-black;
 }
