@@ -23,9 +23,15 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
 		return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
 	});
-	eleventyConfig.addFilter('primaryTag', (tagsArr) => {
-		return tagsArr.find(element => element !== 'posts');
-	})
+	// Function to filter tags array. Removes the tags we don't show 
+	function filterTagList(tags) {
+		const tagsToRemove = ["all", "posts"]
+		return (tags || []).filter(tag => tagsToRemove.indexOf(tag) === -1);
+	}
+	// returns the fitst tag from tag array after filturing the tags array
+	eleventyConfig.addFilter('primaryTag', (tags) => {
+		return filterTagList(tags)[0];
+	});
 
 	eleventyConfig.addPassthroughCopy('src/assets/images');
 
