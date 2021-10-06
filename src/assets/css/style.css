@@ -10,13 +10,15 @@ h1, h2, h3, h4, h5 {
 }
 h1, .h1 {
 	@apply md:text-6xl sm:text-5xl text-4xl;
-	@apply leading-relaxed;
+	@apply leading-snug;
 }
 h2, .h2 {
 	@apply text-5xl;
+	@apply leading-snug;
 }
 h3, .h3 {
 	@apply text-4xl;
+	@apply leading-snug;
 }
 
 @layer utilities {
