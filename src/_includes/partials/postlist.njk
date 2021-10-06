@@ -9,7 +9,8 @@
             {% set primaryTag = post.data.tags | primaryTag %}
             {% if primaryTag %}
             <span class="mx-1" role="presentation" aria-hidden="true">•</span>
-            <a href="/blog/{{primaryTag | slug }}/" class="hover:text-red-500">{{primaryTag}}</a>
+            {% set tagUrl %}/tag/{{ primaryTag | slug }}/{% endset %}
+            <a href="{{ tagUrl | url }}" class="hover:text-red-500">{{primaryTag}}</a>
             {% endif %}
         </div>
         <h2 class="mb-6">
