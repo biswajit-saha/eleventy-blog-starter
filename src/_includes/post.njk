@@ -21,8 +21,25 @@ layout: base
             {{ content | safe }}
         </div>
     </div>
+    {# previous and next post #}
+    {% set prevPost = collections.posts | getPreviousCollectionItem(page) %}
+    {% set nextPost = collections.posts | getNextCollectionItem(page) %}
+    <div class="max-w-5xl flex flex-col md:flex-row justify-between mx-auto my-12">
+        <div class="max-w-1/2 md:mr-4">
+            {% if nextPost %}
+            <a href="{{nextPost.url}}">
+                <div class="uppercase text-sm mb-2">Newer post</div>
+                <h4 class="hover:text-red-600">{{nextPost.data.title}}</h4>
+            </a>
+            {% endif %}
+        </div>
+        <div class="max-w-1/2 md:mr-4 md:text-right mt-10 md:mt-0">
+            {% if prevPost %}
+            <a href="{{prevPost.url}}">
+                <div class="uppercase text-sm mb-2">Older post</div>
+                <h4 class="hover:text-red-600">{{prevPost.data.title}}</h4>
+            </a>
+            {% endif %}
+        </div>
+    </div>
 </div>
-{% set previousPost = collections.posts | getPreviousCollectionItem(page) %}
-{% set nextPost = collections.posts | getNextCollectionItem(page) %}
-<a href="{{previousPost.url}}">{{previousPost.data.title}}</a>
-<a href="{{nextPost.url}}">{{nextPost.data.title}}</a>

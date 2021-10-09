@@ -13,6 +13,9 @@ module.exports = {
             },
             lineHeight: {
                 '12': '3rem',
+            },
+            maxWidth: {
+                '1/2': '50%',
             }
         },
     },
