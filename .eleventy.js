@@ -32,6 +32,15 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter('primaryTag', (tags) => {
 		return filterTagList(tags)[0];
 	});
+	// Returns all available tags
+	eleventyConfig.addCollection("tagList", function(collection) {
+		let tagSet = new Set();
+		collection.getAll().forEach(item => {
+		  (item.data.tags || []).forEach(tag => tagSet.add(tag));
+		});
+	
+		return filterTagList([...tagSet]);
+	});
 
 	eleventyConfig.addPassthroughCopy('src/assets/images');
 
