@@ -1,34 +1,34 @@
 [
     {
-        "title": "Home",
+        "label": "Home",
         "url": "/"
     },
     {
-    "title": "Blog",
-    "url": "/blog/"
+        "label": "Blog",
+        "url": "/blog/"
     },
     {
-    "title": "Tags",
-    "url": "/tags/"
+        "label": "Tags",
+        "url": "/tags/"
     },
     {
-    "title": "About",
-    "url": "/about/"
+        "label": "About",
+        "url": "/about/"
     },
     {
-    "title": "Contact",
-    "url": "/contact/"
+        "label": "Contact",
+        "url": "/contact/"
     },
     {
-        "title": "Dropdown",
+        "label": "Dropdown",
         "child": [
             {
-            "title": "Child 1",
-            "url": "#"
+                "label": "Child 1",
+                "url": "#"
             },
             {
-            "title": "Child 2",
-            "url": "#"
+                "label": "Child 2",
+                "url": "#"
             }
         ]
     }

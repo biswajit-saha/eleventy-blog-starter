@@ -8,16 +8,16 @@
                 {% for nav in navigation %}
                     <li class="group relative" role="menuitem">
                         {% if nav.child %}
-                            <a href="#" class="inline-flex h-8 hover:text-red-500">{{nav.title}}</a>
+                            <a href="#" class="inline-flex h-8 hover:text-red-500">{{nav.label}}</a>
                             <ul class="opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus:opacity-100 group-focus:visible absolute right-0 block border border-solid border-gray-200 rounded-md p-2 min-w-160">
                                 {% for nav in nav.child %}
                                     <li class="whitespace-nowrap hover:bg-gray-100  rounded-md" role="menuitem">
-                                        <a href="{{nav.url | url}}" class="block p-2 {% if nav.url==page.url %} nav-current text-red-500{% endif %}">{{nav.title}}</a>
+                                        <a href="{{nav.url | url}}" class="block p-2 {% if nav.url==page.url %} nav-current text-red-500{% endif %}">{{nav.label}}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                         {% else %}
-                            <a href="{{nav.url | url}}" class="inline-flex h-8 hover:text-red-500{% if nav.url==page.url %}nav-current text-red-500{% endif %}">{{nav.title}}</a>                        
+                            <a href="{{nav.url | url}}" class="inline-flex h-8 hover:text-red-500{% if nav.url==page.url %}nav-current text-red-500{% endif %}">{{nav.label}}</a>
                         {% endif %}
                     </li>
                 {% endfor %}
