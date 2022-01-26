@@ -1,5 +1,5 @@
 ---
-title: First post copy
+title: Second post
 description: This is my custom excerpt
 date: 2021-10-03
 tags: ['HTML CSS', 'Getting started', 'programming']
