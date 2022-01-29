@@ -1,0 +1,30 @@
+[
+    {
+        "icon": "twitter",
+        "url": "https://twitter.com/"
+    },
+    {
+        "icon": "facebook",
+        "url": "https://facebook.com/"
+    },
+    {
+        "icon": "github",
+        "url": "https://github.com/"
+    },
+    {
+        "icon": "linkedin",
+        "url": "https://linkedin.com/"
+    },
+    {
+        "icon": "instagram",
+        "url": "https://instagram.com/"
+    },
+    {
+        "icon": "youtube",
+        "url": ""
+    },
+    {
+        "icon": "envelope",
+        "url": "mailto:you@example.com"
+    }
+]
