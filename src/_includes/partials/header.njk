@@ -10,21 +10,28 @@
             <span class="line top-6 -mt-1"></span>
             <span class="sr-only">Menu toggle button</span>
         </label>
-        <nav class="fixed md:relative bg-white border-r md:border-none border-gray-400 top-0 left-0 -translate-x-64 md:translate-x-0 ttransition-transform duration-300 ransform-gpu w-64 md:w-auto h-full z-50 main-nav">
-            <ul class="md:flex space-y-4 space-x-0 md:space-y-0 md:space-x-8 py-6 px-8 md:p-0 text-lg font-medium text-gray-500" role="menu">
+        <nav class="fixed md:relative bg-white border-r md:border-none border-gray-400 top-0 left-0 -translate-x-64 md:translate-x-0 transition-transform duration-300 ransform-gpu w-64 md:w-auto h-full z-50 main-nav">
+            <ul class="md:flex space-y-2 space-x-0 md:space-y-0 md:space-x-8 py-6 px-8 md:p-0 text-lg font-medium text-gray-500" role="menu">
                 {% for nav in navigation %}
-                    <li class="group relative" role="menuitem">
+                    <li class="group relative " role="menuitem">
                         {% if nav.child %}
-                            <a href="#" class="block md:inline-flex h-8 hover:text-red-500">{{nav.label}}</a>
-                            <ul class="opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus:opacity-100 group-focus:visible absolute right-0 block border border-solid border-gray-200 rounded-md p-2 min-w-160">
+                            <input id="{{nav.label}}-submenu" class="hidden sub-menu-toggle" type="checkbox">
+                            <a href="#" class="block md:inline-flex h-10 md:h-8 leading-10 md:leading-8 hover:text-red-500">{{nav.label}}
+                            <label for="{{nav.label}}-submenu" class="sub-menu-icon" aria-label="menu toggle button">
+                                {% set svgClass = "fill-current w-3 h-3  md:inline" %}
+                                {% svg "arrow-down", svgClass %}
+                                <span class="sr-only">submenu toggle icon</span>
+                            </label>
+                            </a>
+                            <ul class="submenu">
                                 {% for nav in nav.child %}
-                                    <li class="whitespace-nowrap hover:bg-gray-100  rounded-md" role="menuitem">
+                                    <li class="whitespace-nowrap hover:text-red-500 md:hover:bg-gray-100  rounded-md" role="menuitem">
                                         <a href="{{nav.url | url}}" class="block p-2 {% if nav.url==page.url %} nav-current text-red-500{% endif %}">{{nav.label}}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                         {% else %}
-                            <a href="{{nav.url | url}}" class="block md:inline-flex h-8 hover:text-red-500{% if nav.url==page.url %}nav-current text-red-500{% endif %}">{{nav.label}}</a>
+                            <a href="{{nav.url | url}}" class="block md:inline-flex h-10 md:h-8 leading-10 md:leading-8 hover:text-red-500{% if nav.url==page.url %}nav-current text-red-500{% endif %}">{{nav.label}}</a>
                         {% endif %}
                     </li>
                 {% endfor %}

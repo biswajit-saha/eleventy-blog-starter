@@ -59,3 +59,22 @@ h4, .h4 {
 .mobile-menu-toggle:checked~.main-nav {
 	@apply left-0 transition-transform duration-300 translate-x-0;
 }
+
+/* submenu icon */
+.sub-menu-icon {
+	@apply absolute top-0 right-0 w-10 h-10 md:w-auto md:h-auto flex items-center justify-center bg-gray-100 cursor-pointer;
+	@apply md:relative md:inline md:bg-transparent md:ml-2;
+}
+.sub-menu-toggle:checked~a .sub-menu-icon svg {
+	@apply rotate-180 md:rotate-0;
+}
+.submenu {
+	@apply hidden bg-gray-100 md:bg-white py-1 rounded-t-md;
+	@apply md:scale-y-100 md:opacity-0 md:invisible;
+	@apply md:group-hover:opacity-100 md:group-hover:visible md:group-focus:opacity-100 md:group-focus:visible;
+	@apply md:absolute md:right-0 md:block md:border md:border-solid md:border-gray-200 md:rounded-md md:p-2 md:min-w-160;
+}
+
+.sub-menu-toggle:checked~.submenu {
+	@apply block;
+}
