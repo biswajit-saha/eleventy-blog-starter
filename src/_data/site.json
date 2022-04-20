@@ -1,5 +1,5 @@
 {
-    "url": "http://localhost:8080",
+    "url": "https://eleventy-blog-starter-template.netlify.app",
     "title": "John Doe",
     "description": "Site description"
 }
