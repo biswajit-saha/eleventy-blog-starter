@@ -1,5 +1,6 @@
 {
     "url": "https://eleventy-blog-starter-template.netlify.app",
     "title": "John Doe",
-    "description": "Site description"
+    "description": "Site description",
+    "twitterUserName": "@yourUsername"
 }

@@ -1,11 +1,11 @@
 <title>{{title or renderData.title or site.title }}</title>
-<meta content="{{renderData.title}}"/>
-<meta name="description" content="{{description or renderData.description}}" />
-<link rel="canonical" href="{{site.url}}{{ page.url }}"/>
+<meta content="{{ renderData.title }}"/>
+<meta name="description" content="{{ description or renderData.description or site.description or title }}" />
+<link rel="canonical" href="{{ site.url }}{{ page.url }}"/>
 <meta name="robots" content="index, follow" />
 
 <meta property="og:title" content="{{ title }}">
-<meta property="og:description" content="{{ desc or title }}">
+<meta property="og:description" content="{{ description or renderData.description or site.description or title }}">
 <meta property="og:type" content="article">
 <meta property="og:image" content="{{ cover }}"/>
 <meta property="og:image:width" content="1200" />
@@ -13,7 +13,7 @@
 <!-- Twitter -->
 <meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@yourUsername">
-<meta name="twitter:description" content="{{ desc or title }}">
+<meta name="twitter:site" content="{{site.twitterUserName}}">
+<meta name="twitter:description" content="{{ description or renderData.description or site.description or title }}">
 <meta name="twitter:image" content="{{ cover }}">
-<meta name="twitter:creator" content="@yourUsername">
+<meta name="twitter:creator" content="{{site.twitterUserName}}">
